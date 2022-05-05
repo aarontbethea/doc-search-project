@@ -1,23 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
-
+import React, {useState,useEffect} from 'react';
+//external widgets
+import IndSearchForm from "./widgets/type-one-search.jsx";
+import ResultsViewer from './widgets/resultsView';
 function App() {
+  //set up state value
+  const [searchData,setData] = useState({});
+
+  //set up condition to render results widget
+  let resForm;
+  const isEmpty = Object.keys(searchData).length === 0;
+  console.log("Empty Object?");
+  console.log(isEmpty);
+  if (!isEmpty) {
+    resForm = <ResultsViewer searchData={searchData}/>
+  } else {
+    resForm = <p><i>Enter search criteria to view results!</i></p>
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <IndSearchForm searchData={searchData} setData={setData}/>
+      <hr/>
+      {resForm}
+      
     </div>
   );
 }
