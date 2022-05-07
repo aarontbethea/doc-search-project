@@ -18,8 +18,7 @@ function ResultsViewer(props) {
                 return (
                     <IndResult 
                     key={i} 
-                    number={r.number}
-                    basic={r.basic}/>
+                    data={r}/>
                 );
             })}
         </div>

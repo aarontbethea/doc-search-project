@@ -124,7 +124,7 @@ function IndSearchForm(props) {
   };
 
   return (
-    <div className="medicare-search">
+    <div id="medicare-search">
       <h3>Medicare Provider Search</h3>
       {introMsg}
       <form onSubmit={handlesubmit}>
@@ -174,7 +174,7 @@ function IndSearchForm(props) {
         </div>
         {searchName}
         {/* Submit button */}
-        <button type="submit" class="btn btn-outline-dark btn-sm">Search CMS Database</button>
+        <button type="submit" className="btn btn-outline-dark btn-sm">Search CMS Database</button>
 
       </form>
     </div>
